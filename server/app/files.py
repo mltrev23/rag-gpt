@@ -32,7 +32,7 @@ from server.rag.index.parser.file_parser.markdown_parser import AsyncTextParser
 
 URL_PREFIX = os.getenv('URL_PREFIX')
 
-files_bp = Blueprint('files', __name__, url_prefix='/open_kf_api/files')
+files_bp = Blueprint('files', __name__, url_prefix='/rag_gpt_api/files')
 
 
 async def write_file_async(file_path: str, content: bytes) -> None:

@@ -20,7 +20,7 @@ from server.rag.index.parser.html_parser.web_content_crawler import AsyncCrawler
 
 sitemaps_bp = Blueprint('sitemaps',
                         __name__,
-                        url_prefix='/open_kf_api/sitemaps')
+                        url_prefix='/rag_gpt_api/sitemaps')
 
 
 def async_crawl_link_task(site: str, version: int) -> None:

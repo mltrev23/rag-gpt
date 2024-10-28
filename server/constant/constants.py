@@ -58,7 +58,7 @@ STATIC_DIR = "web"
 MEDIA_DIR = "media_dir"
 
 # Unique identifier for the distributed lock in the DiskCache
-DISTRIBUTED_LOCK_ID = "open_kf:distributed_lock"
+DISTRIBUTED_LOCK_ID = "rag_gpt:distributed_lock"
 
 # Expiration time for the distributed lock (in seconds)
 DISTRIBUTED_LOCK_EXPIRE_TIME = 20

@@ -9,7 +9,7 @@ from server.logger.logger_config import my_logger as logger
 
 account_bp = Blueprint('account_config',
                        __name__,
-                       url_prefix='/open_kf_api/account')
+                       url_prefix='/rag_gpt_api/account')
 
 
 @account_bp.route('/login', methods=['POST'])

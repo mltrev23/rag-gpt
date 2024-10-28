@@ -9,7 +9,7 @@ from server.logger.logger_config import my_logger as logger
 
 intervention_bp = Blueprint('intervention',
                             __name__,
-                            url_prefix='/open_kf_api/intervention')
+                            url_prefix='/rag_gpt_api/intervention')
 
 
 @intervention_bp.route('/add_intervene_record', methods=['POST'])
@@ -66,7 +66,7 @@ def add_intervene_record():
             }
 
         # Update Cache using simple string with the query as the key (prefixed)
-        key = f"open_kf:intervene:{query}"
+        key = f"rag_gpt:intervene:{query}"
         value = json.dumps({"answer": intervene_answer, "source": source})
         diskcache_client.set(key, value)
 
@@ -119,7 +119,7 @@ def delete_intervene_record():
                 }
 
             # Now, delete the corresponding record from Cache
-            key = f"open_kf:intervene:{query}"
+            key = f"rag_gpt:intervene:{query}"
             diskcache_client.delete(key)
 
             return {"retcode": 0, "message": "success", 'data': {}}
@@ -162,7 +162,7 @@ def batch_delete_intervene_record():
 
         for row in rows:
             query = row['query']
-            key = f"open_kf:intervene:{query}"
+            key = f"rag_gpt:intervene:{query}"
             diskcache_client.delete(key)
 
         # Then, batch delete from DB
@@ -232,7 +232,7 @@ def update_intervene_record():
         row = cur.fetchone()
         if row:
             query = row['query']
-            key = f"open_kf:intervene:{query}"
+            key = f"rag_gpt:intervene:{query}"
             value = json.dumps({"answer": intervene_answer, "source": source})
             diskcache_client.set(key, value)
         else:

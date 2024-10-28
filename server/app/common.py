@@ -9,7 +9,7 @@ from server.logger.logger_config import my_logger as logger
 
 URL_PREFIX = os.getenv('URL_PREFIX')
 
-common_bp = Blueprint('common', __name__, url_prefix='/open_kf_api/common')
+common_bp = Blueprint('common', __name__, url_prefix='/rag_gpt_api/common')
 
 
 @common_bp.route('/upload_picture', methods=['POST'])

@@ -16,7 +16,7 @@ from server.app.utils.url_helper import is_valid_url, normalize_url
 from server.logger.logger_config import my_logger as logger
 from server.rag.index.parser.html_parser.web_content_crawler import AsyncCrawlerSiteContent
 
-urls_bp = Blueprint('urls', __name__, url_prefix='/open_kf_api/urls')
+urls_bp = Blueprint('urls', __name__, url_prefix='/rag_gpt_api/urls')
 
 
 def async_isolated_url_content_task(url_dict: Dict[int, str],

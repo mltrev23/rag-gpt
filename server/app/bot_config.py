@@ -9,7 +9,7 @@ from server.logger.logger_config import my_logger as logger
 
 bot_config_bp = Blueprint('bot_config',
                           __name__,
-                          url_prefix='/open_kf_api/bot_config')
+                          url_prefix='/rag_gpt_api/bot_config')
 
 
 @bot_config_bp.route('/get_bot_setting', methods=['POST'])
@@ -17,7 +17,7 @@ def get_bot_setting():
     """Retrieve bot setting, first trying Cache and falling back to DB if not found."""
     try:
         # Attempt to retrieve the setting from Cache
-        key = "open_kf:bot_setting"
+        key = "rag_gpt:bot_setting"
         setting_cache = diskcache_client.get(key)
         if setting_cache:
             setting_data = json.loads(setting_cache)
@@ -53,7 +53,7 @@ def get_bot_setting():
 
             # Add bot setting into Cache
             try:
-                key = "open_kf:bot_setting"
+                key = "rag_gpt:bot_setting"
                 diskcache_client.set(key, json.dumps(setting_data))
             except Exception as e:
                 logger.error(
@@ -153,7 +153,7 @@ def update_bot_setting():
 
         # Update bot setting in Cache
         try:
-            key = "open_kf:bot_setting"
+            key = "rag_gpt:bot_setting"
             bot_setting = {
                 'id': setting_id,
                 'initial_messages': initial_messages,

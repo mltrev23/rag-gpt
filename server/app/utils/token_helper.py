@@ -5,7 +5,7 @@ from jwt import ExpiredSignatureError, InvalidTokenError
 
 
 class TokenHelper:
-    JWT_SECRET = 'open_kf_2024'  # Should be replaced with a secure key
+    JWT_SECRET = 'rag_gpt_2024'  # Should be replaced with a secure key
     JWT_ALGORITHM = 'HS256'
     JWT_EXPIRATION_DELTA = datetime.timedelta(days=7)  # Token expiration time
 

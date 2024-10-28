@@ -64,7 +64,7 @@ Quickly launch an intelligent customer service system with Flask, LLM, RAG, incl
 Clone the repository:
 
 ```shell
-git clone https://github.com/open-kf/rag-gpt.git && cd rag-gpt
+git clone https://github.com/mltrev23/rag-gpt.git && cd rag-gpt
 ```
 
 ### Step 2: Configure variables of .env
@@ -333,7 +333,7 @@ sh start.sh
 
 ### Login to the admin console
 
-Access the admin console through the link **`http://your-server-ip:7000/open-kf-admin/`** to reach the login page. The default username and password are **`admin`** and **`open_kf_AIGC@2024`** (can be checked in `create_sqlite_db.py`).
+Access the admin console through the link **`http://your-server-ip:7000/rag-gpt-admin/`** to reach the login page. The default username and password are **`admin`** and **`rag_gpt_mltrev23@2024`** (can be checked in `create_sqlite_db.py`).
 
 <div align="center">
 <img style="display: block; margin: auto; width: 70%;" src="./doc/screenshot-2.jpg">
@@ -345,7 +345,7 @@ After logging in successfully, you will be able to see the configuration page of
 <img style="display: block; margin: auto; width: 70%;" src="./doc/screenshot-3.jpg">
 </div>
 
-On the page **`http://your-server-ip:7000/open-kf-admin/#/`**, you can set the following configurations:
+On the page **`http://your-server-ip:7000/rag-gpt-admin/#/`**, you can set the following configurations:
 - Choose the LLM base, currently only the `gpt-3.5-turbo` option is available, which will be gradually expanded.
 - Initial Messages
 - Suggested Messages
@@ -364,7 +364,7 @@ After submitting the website URL, once the server retrieves the list of all web 
 <img style="display: block; margin: auto; width: 70%;" src="./doc/screenshot-12.jpg">
 </div>
 
-You can actively refresh the page **`http://your-server-ip:7000/open-kf-admin/#/source`** in your browser to get the progress of web page URL processing. After the content of the web page URL has been crawled, and the Embedding calculation and storage are completed, you can see the corresponding `Size` in the admin console, and the `Status` will also be updated to **`Trained`**.
+You can actively refresh the page **`http://your-server-ip:7000/rag-gpt-admin/#/source`** in your browser to get the progress of web page URL processing. After the content of the web page URL has been crawled, and the Embedding calculation and storage are completed, you can see the corresponding `Size` in the admin console, and the `Status` will also be updated to **`Trained`**.
 
 <div align="center">
 <img style="display: block; margin: auto; width: 70%;" src="./doc/screenshot-13.jpg">
@@ -409,7 +409,7 @@ After importing website data in the admin console, you can experience the chatbo
 
 ### Embed on your website
 
-Through the admin console link **`http://your-server-ip:7000/open-kf-admin/#/embed`**, you can see the detailed tutorial for configuring the iframe in your website.
+Through the admin console link **`http://your-server-ip:7000/rag-gpt-admin/#/embed`**, you can see the detailed tutorial for configuring the iframe in your website.
 
 <div align="center">
 <img style="display: block; margin: auto; width: 70%;" src="./doc/screenshot-7.jpg">
@@ -424,7 +424,7 @@ Through the admin console link **`http://your-server-ip:7000/open-kf-admin/#/emb
 
 ### Dashboard of user's historical request
 
-Through the admin console link **`http://your-server-ip:7000/open-kf-admin/#/dashboard`**, you can view the historical request records of all users within a specified time range.
+Through the admin console link **`http://your-server-ip:7000/rag-gpt-admin/#/dashboard`**, you can view the historical request records of all users within a specified time range.
 
 <div align="center">
 <img style="display: block; margin: auto; width: 70%;" src="./doc/screenshot-9.jpg">

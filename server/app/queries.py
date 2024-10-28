@@ -29,14 +29,14 @@ USE_PREPROCESS_QUERY = int(os.getenv('USE_PREPROCESS_QUERY'))
 USE_RERANKING = int(os.getenv('USE_RERANKING'))
 USE_DEBUG = int(os.getenv('USE_DEBUG'))
 
-queries_bp = Blueprint('queries', __name__, url_prefix='/open_kf_api/queries')
+queries_bp = Blueprint('queries', __name__, url_prefix='/rag_gpt_api/queries')
 
 
 def get_user_query_history(user_id: str, is_streaming: bool) -> List[Any]:
     if is_streaming:
-        history_key = f"open_kf:query_history:{user_id}:stream"
+        history_key = f"rag_gpt:query_history:{user_id}:stream"
     else:
-        history_key = f"open_kf:query_history:{user_id}"
+        history_key = f"rag_gpt:query_history:{user_id}"
     history_items = diskcache_client.get_list(history_key)[::-1]
     history = [json.loads(item) for item in history_items]
     return history
@@ -48,10 +48,10 @@ def save_user_query_history(user_id: str, query: str, answer: str,
         # After generating the response from LLM
         # Store user query and LLM response in Cache
         if is_streaming:
-            history_key = f"open_kf:query_history:{user_id}:stream"
+            history_key = f"rag_gpt:query_history:{user_id}:stream"
             history_data = {'query': query, 'answer': answer}
         else:
-            history_key = f"open_kf:query_history:{user_id}"
+            history_key = f"rag_gpt:query_history:{user_id}"
             answer_json = json.loads(answer)
             history_data = {'query': query, 'answer': answer_json}
         diskcache_client.append_to_list(history_key,
@@ -394,7 +394,7 @@ def check_smart_query(f):
 
         try:
             # Check if the query is in Cache
-            key = f"open_kf:intervene:{query}"
+            key = f"rag_gpt:intervene:{query}"
             intervene_data = diskcache_client.get(key)
             if intervene_data:
                 logger.info(

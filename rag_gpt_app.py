@@ -24,7 +24,7 @@ In scenarios where using a dedicated static file server (like Nginx) is not feas
 
 This Flask application demonstrates how to serve:
 - Static media files from a dynamic path (`MEDIA_DIR`)
-- The homepages and assets for two single-page applications (SPAs): 'open-kf-chatbot' and 'open-kf-admin'.
+- The homepages and assets for two single-page applications (SPAs): 'open-kf-chatbot' and 'rag-gpt-admin'.
 
 Note:
 While Flask is capable of serving static files, it's not optimized for the high performance and efficiency of a dedicated static file server like Nginx, especially under heavy load. For large-scale production use cases, deploying a dedicated static file server is recommended.
@@ -57,16 +57,16 @@ def serve_static_chatbot(path):
     return send_from_directory(f'{app.static_folder}/open-kf-chatbot', path)
 
 
-# Route for the homepage of the 'open-kf-admin' site
-@app.route('/open-kf-admin', strict_slashes=False)
+# Route for the homepage of the 'rag-gpt-admin' site
+@app.route('/rag-gpt-admin', strict_slashes=False)
 def index_admin():
-    return send_from_directory(f'{app.static_folder}/open-kf-admin', 'index.html')
+    return send_from_directory(f'{app.static_folder}/rag-gpt-admin', 'index.html')
 
 
-# Route for serving other static files of the 'open-kf-admin' application
-@app.route('/open-kf-admin/<path:path>')
+# Route for serving other static files of the 'rag-gpt-admin' application
+@app.route('/rag-gpt-admin/<path:path>')
 def serve_static_admin(path):
-    return send_from_directory(f'{app.static_folder}/open-kf-admin', path)
+    return send_from_directory(f'{app.static_folder}/rag-gpt-admin', path)
 
 
 app.register_blueprint(account.account_bp)
