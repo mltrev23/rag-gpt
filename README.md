@@ -8,7 +8,7 @@ Quickly launch an intelligent customer service system with Flask, LLM, RAG, incl
 </div>
 
 
-# Contents
+# All Contents
 
 - [Features](#features)
 - [Online Retrieval Architecture](#online-retrieval-architecture)
